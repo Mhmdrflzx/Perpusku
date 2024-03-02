@@ -34,6 +34,15 @@
                         <label for="email" class="form-label">Email</label>
                         <input type="text" class="form-control" id="email" name="email" required>
                     </div>
+                    <div class="mb-3">
+                        <label for="alamat" class="form-label">alamat</label>
+                        <textarea class="form-control" id="alamat" name="alamat" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nomor" class="form-label">Nomor</label>
+                        <input type="number" class="form-control" id="nomor" name="nomor" required>
+                    </div>
+
                     
                         <div class="mb-3">
                             <label for="role" class="form-label">Role</label>

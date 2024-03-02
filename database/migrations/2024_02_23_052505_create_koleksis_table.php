@@ -13,8 +13,12 @@ return new class extends Migration
     {
         Schema::create('koleksis', function (Blueprint $table) {
             $table->id();
-            $table->string('buku');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('buku_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('buku_id')->references('id')->on('bukus');
         });
     }
 

@@ -11,15 +11,10 @@
         <!-- ======= Why Us Section ======= -->
         <section id="why-us" class="why-us">
             <div class="container">
-
-
-               
-                    
-               
                 <div class="row">
                     <div class="col-lg-4 d-flex align-items-stretch">
                         <div class="content">
-                            <h3>BUKU PERPUSTAKAAN</h3>
+                            <h3>Koleksi Buku</h3>
                             <div class="text-center">
                             </div>
                         </div>
@@ -27,23 +22,18 @@
                     <div class="col-lg-8 d-flex align-items-stretch">
                         <div class="icon-boxes d-flex flex-column justify-content-center">
                             <div class="row">
-
-                              
-                            
+                                @foreach ($koleksi as $item)
                                 <div class="col-xl-4 d-flex align-items-stretch">
                                     <div class="icon-box mt-4 mt-xl-0">
-                                        <img src="" width="200" class="book-image" onclick="location.href='/koleksi/' ">
+                                        <img src="/Photo/{{ $item->buku->foto }}" width="200" class="book-image" onclick="location.href='/pinjam/{{ $item->buku->id }}' ">
                                         <br>
-                                        <h4></h4>
+                                        <h4>{{ $item->buku->buku }}</h4>
                                         <div class="container d-flex justify-content-between align-items-center mt-3">
+                                            
                                         </div>
                                     </div>
                                 </div>
-                               
-                                
-
-
-
+                                @endforeach
                             </div>
                         </div><!-- End .content-->
                     </div>

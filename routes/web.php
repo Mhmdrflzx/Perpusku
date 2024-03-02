@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KoleksiController;
 use App\Http\Controllers\KomenController;
 use App\Http\Controllers\PinjamController;
 use Illuminate\Support\Facades\Route;
@@ -33,10 +34,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 Route::middleware(['auth'])->group(function () {
-    Route::middleware(['admin',])->group(function () {
+    Route::middleware(['admin'])->group(function () {
         Route::view('/admin', 'admin');
     });
+    
     
 
     // Route::middleware(['petugas'])->group(function () {
@@ -45,7 +48,6 @@ Route::middleware(['auth'])->group(function () {
 
     //ulasan
     Route::resource('/ulasan', UlasanController::class);
-
     //pinjam
     Route::resource('/pinjam', PinjamController::class); 
 
@@ -82,8 +84,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 
-    route::view('/koleksi', 'koleksi');
-
+    // koleksi
+    Route::get('/koleksi', [KoleksiController::class, 'index'])->name('koleksi.index');
+    Route::post('/koleksi/store', [KoleksiController::class, 'store'])->name('koleksi.store');
+    
 
 
 

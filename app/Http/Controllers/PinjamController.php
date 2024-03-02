@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Buku;
 use App\Models\Pinjam;
+use App\Models\Koleksi;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class PinjamController extends Controller
 {
@@ -71,8 +72,10 @@ class PinjamController extends Controller
      */
     public function show(string $id)
     {
+        $user = Auth::user()->id;
         $buku = Buku::findOrFail($id);
-        return view('pinjam', compact('buku'));
+        $existingKoleksi = Koleksi::where('user_id', $user)->where('buku_id', $buku->id)->exists();
+        return view('pinjam', compact('buku', 'existingKoleksi'));
     }
 
     /**
