@@ -181,18 +181,13 @@
    @yield('content')
     <!-- ======= Footer ======= -->
     <footer id="footer">
-
-
         <div class="container d-md-flex py-4">
-
             <div class="me-md-auto text-center text-md-start">
                 <div class="copyright">
                 <h5><strong>LibraryKu</strong></h5>
                 </div>
-                
                 <div class="credits">
                     @auth
-                   
                     <h6> <i class="fas fa-user-circle"></i> <span> {{ auth()->user()->email }}</h6>
                     @endauth
                 </div>

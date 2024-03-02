@@ -28,13 +28,15 @@
         </a>
       </li><!-- End F.A.Q Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="/indexuser">
-          <i class="bi bi-person"></i>
-          <span>User</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-
+      @if (auth()->user()->role == 'admin') 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/indexuser">
+                    <i class="bi bi-person"></i>
+                    <span>User</span>
+                </a>
+            </li><!-- End Contact Page Nav -->
+        @endif
+    
     </ul>
 
   </aside><!-- End Sidebar-->
